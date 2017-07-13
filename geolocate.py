@@ -24,17 +24,22 @@ def get_ip_country(ip):
 		sys.stderr.write('Could not retrieve any geolocation info for IP {} - skipping.\n'.format(ip))
 		return False
 
-	country = response.text.split(';')[3]
+	country_name = response.text.split(';')[3]
 
-	if country == 'Reserved':
+	if country_name == 'Reserved':
 		sys.stderr.write('Could not retrieve any geolocation for IP {} - it looks like a private address\n'.format(ip))
 		return False
 
-	return country
+	country_code = response.text.split(';')[1]
+
+	return {
+		'country_name': country_name, 
+		'country_code': country_code
+	}
 
 
 ip_list = read_ip_list()
 for ip in ip_list:
-	country = get_ip_country(ip)
-	if country:
-		print("{},{}".format(ip, country))
+	result = get_ip_country(ip)
+	if result:
+		print("{},{},{}".format(ip, result['country_code'], result['country_name']))
