@@ -4,7 +4,7 @@ This repository contains a small script that you can use when you need to geoloc
 
 It takes a file containing a list of IPs as an input, and outputs a CSV friendly format.
 
-**Input file format**: a file containing one IPv4 address per line, in either dotted or decimal notation.
+**Input file format**: a file containing one IPv4 address per line, in dotted notation (e.g. 8.8.8.8)
 
 **Output file format**: IP, ISO2 country code, Country name
 
