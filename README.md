@@ -4,20 +4,21 @@ This repository contains a small script that you can use when you need to geoloc
 
 It takes a file containing a list of IPs as an input, and outputs a CSV friendly format.
 
-Usage: 
+**Input file format**: a file containing one IPv4 address per line, in either dotted or decimal notation.
+
+**Output file format**: IP, ISO2 country code, Country name
+
+**Usage**:
+
+``` 
+python geolocate.py ip_file > geolocalized_ips
+```
+
+**Sample result:**
 
 ```
-$ cat ip_file
-216.58.205.3
-128.178.50.12
-185.75.143.24
-104.16.109.41
-
-$ python geolocate.py ip_file > geolocalized_ips
-
-$ cat geolocalized_ips
-216.58.205.3,United States
-128.178.50.12,Switzerland
-185.75.143.24,France
-104.16.109.41,United States
+216.58.205.3,US,United States
+128.178.50.12,CH,Switzerland
+185.75.143.24,FR,France
+104.16.109.41,US,United States
 ```
